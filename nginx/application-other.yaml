@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-other
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  source:
+    repoURL: https://github.com/acm-073/test-apps.git
+    targetRevision: other
+    path: test-charts/nginx-helm
+    helm:
+      valueFiles:
+        - "../../values/values-other.yaml"
+  destination:
+    name: in-cluster
+    namespace: nginx-other
