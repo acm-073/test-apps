@@ -3,3 +3,6 @@ image:
 
 service:
   port: 8080
+
+podAnnotations:
+   foo: bar
