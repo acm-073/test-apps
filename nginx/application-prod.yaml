@@ -14,7 +14,10 @@ spec:
   source:
     repoURL: https://github.com/acm-073/test-apps.git
     targetRevision: main
-    path: test-charts/nginx
+    path: test-charts/nginx-helm
+    helm:
+      valueFiles:
+        - "../../values/values-prod.yaml"
   destination:
     name: in-cluster
     namespace: nginx-prod

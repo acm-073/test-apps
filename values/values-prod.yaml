@@ -1,2 +1,5 @@
 image:
   tag: 1.23
+
+service:
+  port: 8080
